@@ -56,7 +56,7 @@ const SignIn = () => {
           <div className="flex flex-col gap-1">
             <h1 className="text-lg font-semibold">Sign In</h1>
             <h5 className="text-sm text-gray-400">
-              Doesn't have an account yet?{" "}
+              Doesn&apos;t have an account yet?{" "}
               <Link
                 href={`/auth/signup`}
                 className="link text-blue-500 font-semibold"

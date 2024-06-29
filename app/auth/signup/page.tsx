@@ -11,6 +11,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { CldUploadWidget } from "next-cloudinary";
 import { url } from "inspector";
+import Image from "next/image";
 
 interface CloudnaryResult {
   url: string;
@@ -68,16 +69,19 @@ const SignUp = () => {
                 className="avatar w-20 h-20"
                 onClick={() => open()}
               >
-                <img
+                <Image
                   className="rounded-full border-2 border-black"
                   src="/account.svg"
-                  alt=""
+                  alt="User avatar"
+                  width={20}
                 />
                 {publicId && (
-                  <img
+                  <Image
                     className="rounded-full border-2 border-black absolute hover:opacity-0 transition-opacity duration-300"
                     src={publicId || ""}
-                    alt=""
+                    alt="User avatar"
+                    width={20}
+                    height={20}
                   />
                 )}
               </div>

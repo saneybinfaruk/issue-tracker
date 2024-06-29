@@ -10,7 +10,7 @@ interface Props {
   searchParams: { status: Status; orderBy: keyof issue };
   issues: issue[];
 }
-export const tHead: { label: string; orderBy: keyof issue }[] = [
+export const columns: { label: string; orderBy: keyof issue }[] = [
   { label: "Issue", orderBy: "title" },
   { label: "Status", orderBy: "status" },
   { label: "Created", orderBy: "createdAt" },
@@ -21,8 +21,8 @@ const IssuesTable = ({ issues, searchParams }: Props) => {
       <table className="table">
         <thead className="bg-red-50 text-black text-sm">
           <tr>
-            {tHead.map((t) => (
-              <td>
+            {columns.map((t) => (
+              <td key={t.label}>
                 <Link
                   href={{ query: { ...searchParams, orderBy: t.orderBy } }}
                   className="link link-hover"

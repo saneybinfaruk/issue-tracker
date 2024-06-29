@@ -2,10 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { issueSchema } from "../../validationSchema";
 import prisma from "@/prisma/PrismaClient";
 import { getServerSession } from "next-auth";
-import { nextAuthOption } from "../auth/[...nextauth]/route";
+import { authOption } from "../auth/[...nextauth]/AuthOptions";
+
 
 export const POST = async (request: NextRequest) => {
-  const session = await getServerSession(nextAuthOption);
+  const session = await getServerSession(authOption);
   if (!session)
     return NextResponse.json({ error: "Access Denied!" }, { status: 401 });
 

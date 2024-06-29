@@ -2,7 +2,7 @@ import prisma from "@/prisma/PrismaClient";
 import React from "react";
 import IssueToolbar from "./IssueToolbar";
 import { issue, Status } from "@prisma/client";
-import IssuesTable, { tHead } from "./IssuesTable";
+import IssuesTable, { columns } from "./IssuesTable";
 import Pagination from "../components/Pagination";
 import { Metadata } from "next";
 
@@ -21,7 +21,7 @@ const IssuesPage = async ({ searchParams }: Props) => {
     ? searchParams.status
     : undefined;
 
-  const orderBy = tHead.map((t) => t.orderBy).includes(searchParams.orderBy)
+  const orderBy = columns.map((t) => t.orderBy).includes(searchParams.orderBy)
     ? { [searchParams.orderBy]: "asc" }
     : undefined;
 

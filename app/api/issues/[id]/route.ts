@@ -2,7 +2,8 @@ import { patchSchema, issueSchema } from "@/app/validationSchema";
 import prisma from "@/prisma/PrismaClient";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-import { nextAuthOption } from "../../auth/[...nextauth]/route";
+import { authOption } from "../../auth/[...nextauth]/AuthOptions";
+
 
 export const PATCH = async (
   request: NextRequest,
@@ -50,7 +51,7 @@ export const DELETE = async (
   request: NextRequest,
   { params: { id } }: { params: { id: string } }
 ) => {
-  const session = await getServerSession(nextAuthOption);
+  const session = await getServerSession(authOption);
   if (!session)
     return NextResponse.json({ error: "Access Denied!" }, { status: 401 });
 

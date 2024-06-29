@@ -2,6 +2,7 @@
 import classNames from "classnames";
 import { Session } from "next-auth";
 import { useSession } from "next-auth/react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -71,7 +72,12 @@ const DropdownMenu = ({ session }: { session: Session }) => {
     <section className="dropdown dropdown-bottom dropdown-end">
       <div className="avatar h-10 w-10" tabIndex={0} role="button">
         <div className="w-10 h-10 rounded-full">
-          <img src={session.user?.image ? session.user?.image:'/account.svg'} />
+          <Image
+            src={session.user?.image ? session.user?.image : "/account.svg"}
+            alt="User avatar"
+            width={20}
+            height={20}
+          />
         </div>
       </div>
 

@@ -2,6 +2,7 @@ import prisma from "@/prisma/PrismaClient";
 import React from "react";
 import StatusBadge from "./components/StatusBadge";
 import Link from "next/link";
+import Image from "next/image";
 
 const LatestIssue = async () => {
   const issues = await prisma.issue.findMany({
@@ -35,7 +36,12 @@ const LatestIssue = async () => {
                   <div className="avatar">
                     <div className="w-10 rounded-full">
                       {issue.assignedToUser?.image && (
-                        <img src={issue.assignedToUser?.image!} />
+                        <Image
+                          src={issue.assignedToUser?.image!}
+                          alt="User avater image"
+                          width={20}
+                          height={20}
+                        />
                       )}
                     </div>
                   </div>

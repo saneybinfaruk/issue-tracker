@@ -21,10 +21,18 @@ const IssueSummary = ({ open, in_progress, closed }: Props) => {
   return (
     <div className="flex items-center gap-5 my-5">
       {containers.map((container) => (
-        <div className="card shadow-xs border-2 border-slate-100">
+        <div
+          key={container.label}
+          className="card shadow-xs border-2 border-slate-100"
+        >
           <div className="card-body">
             <h1 className="text-lg font-bold">{container.count}</h1>
-            <Link href={`/issues?status=${container.status}`} className="text-md link link-hover">{container.label}</Link>
+            <Link
+              href={`/issues?status=${container.status}`}
+              className="text-md link link-hover"
+            >
+              {container.label}
+            </Link>
           </div>
         </div>
       ))}
