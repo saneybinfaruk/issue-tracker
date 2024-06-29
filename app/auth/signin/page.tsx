@@ -16,8 +16,8 @@ import toast, { Toaster } from "react-hot-toast";
 
 const SignIn = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get("callbackUrl") || "/";
+  const searchUrl = new URLSearchParams();
+  const callbackUrl = searchUrl.get("callbackUrl") || "/";
   const [error, setError] = useState("");
   const {
     register,
